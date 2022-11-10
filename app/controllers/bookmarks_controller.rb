@@ -13,7 +13,6 @@ class BookmarksController < ApplicationController
     @list = List.find(params[:list_id])
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
-    raise
 
     if @bookmark.save
       redirect_to list_path(@list), notice: "Bookmark was successfully created."
@@ -23,6 +22,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
   end
 

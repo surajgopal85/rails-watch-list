@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-  before_action :set_bookmark, only: %i[show edit create update destroy]
   def index
     @bookmarks = Bookmark.all
   end
@@ -27,10 +26,6 @@ class BookmarksController < ApplicationController
   end
 
   private
-
-  def set_bookmark
-    # @bookmark = Bookmark.find(params[:list_id])
-  end
 
   def bookmark_params
     params.require(:bookmark).permit(:comment, :movie_id)

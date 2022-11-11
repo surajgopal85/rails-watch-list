@@ -1,9 +1,31 @@
-<h1>All Lists</h1>
-
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= list.name %></li>
-  <% end %>
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">My Lists</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">New List</a>
+  </li>
 </ul>
+
+<div class="banner">
+  <%= image_tag 'q-theatre-banner.jpeg' %>
+</div>
+
+<div class="container">
+  <% @lists.each do |list| %>
+  <div class="row" style="display: inline">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag 'gangster-movies.jpeg' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= list.name %></h5>
+          <p class="card-text">List ID <%= list.id %></p>
+          <%= link_to "Check out your list", list_path(list)%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 <%= link_to "create a new list", new_list_path %>

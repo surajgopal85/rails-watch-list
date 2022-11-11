@@ -1,2 +1,30 @@
 <h1><%= @list.name %></h1>
 <%= link_to "Add a Bookmark", new_list_bookmark_path(@list) %>
+
+<h3>MOVIES</h3>
+<ul>
+  <% if @list.movies == [] %>
+    <li>NO CURRENT MOVIES</li>
+  <% else %>
+    <% @list.movies.each do |item| %>
+      <div class="card" style="width: 18rem;">
+        <%= image_tag item.poster_url %>
+        <div class="card-body">
+          <h5 class="card-title"><%= item.title %></h5>
+          <p class="card-text"><%= item.overview %></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</ul>
+<h3>BOOKMARKS</h3>
+<ul>
+  <% if @list.bookmarks == [] %>
+    <li>NO CURRENT BOOKMARKS</li>
+  <% else %>
+    <% @list.bookmarks.each do |bookmark| %>
+      <li>ID: <%= bookmark.id %> COMMENT: <%= bookmark.comment %></li>
+    <% end %>
+  <% end %>
+</ul>

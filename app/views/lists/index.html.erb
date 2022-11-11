@@ -10,9 +10,12 @@
 <div class="banner">
   <%= image_tag 'https://t3.ftcdn.net/jpg/03/74/28/58/360_F_374285858_KzJ88FysqJ79AhyNPW2lqnBtsRTokuav.jpg' %>
 </div>
+<%# cloudinary sample
+https://res.cloudinary.com/dqxyjgr8m/image/upload/v1668181747/cld-sample-5.jpg %>
 
+<%# https://res.cloudinary.com/dqxyjgr8m/image/upload/v1668191608/sfcswwaetewgpt7bd3ea.jpg %>
 <div class="container">
-  <%= cl_image_path("sfcswwaetewgpt7bd3ea.jpg",
+  <%= cl_image_tag("sfcswwaetewgpt7bd3ea.jpg",
       width: 400, height: 300, crop: :fill) %>
 
 </div>
